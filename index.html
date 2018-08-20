@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SmarterNews gives you more than just the news with a built in dictionary and wiki search">
+    <title>SmarterNews</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script
+     src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <!-- header for active view -->
+      <header class="head" role="banner" aria-live="assertive" hidden>
+        <form action="#" class="defineForm">
+        <label for="query"></label>
+        <input type="text" class="defineInput" placeholder="Enter a search term" aria-label="search">
+        <button type="button" id="define" class="dBtn nav" role="button">Define</button>
+        </form>
+        <h1 class="nav logo">SmarterNews</h1>
+        <form action="#" class="wikiForm">
+        <label for="query"></label>
+        <input type="text" class="wikiInput" placeholder="Enter a search term" aria-label="search">
+        <button type="button" id="wiki" class="wBtn nav" role="button">Learn more</button>
+        </form>
+      </header>
+      <section role="region" class="mainBox">
+        <!-- News section -->
+        <div class="start">
+        <h1 class="logo">SmarterNews</h1>
+        <br/>
+        <button class="tnBtn" role="button">Top News</button>
+        <br/>
+        <form action="#" class="searchNewsForm">
+        <label for="query"></label>
+        <input type="text" class="searchNewsInput" placeholder="Enter a search term" aria-label="search">
+        <button type="button" id="snBtn" class="snBtn">Search News</button>
+      </form>
+        </div>
+        <div class="lbContainer" aria-live="polite" hidden></div>
+        <div class="news"></div>
+      </section>
+      <!-- footer for active view -->
+      <footer class="foot" role="contentinfo" aria-live="polite" hidden>
+        <button type="button" id="top">top</button>
+        <span class="cite">Powered by <a href="https://newsapi.org/" target="_blank">NewsAPI.org</a>.</span>
+      </footer>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
