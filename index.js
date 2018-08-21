@@ -1,6 +1,6 @@
  'use strict';
 
-//API functions
+  //API functions
  function gatherTopNews() {
    //top headlines api info
    let newsEP = 'https://newsapi.org/v2/top-headlines?' +
@@ -12,30 +12,35 @@
       async: false,
       datatype: 'json',
       success: function(topNews) {
-        //title = topNews.articles[i].title
           $(".tnBtn").on('click', function(e){
             $('.start').prop('hidden', true);
             $(".foot").prop('hidden', false);
             $(".head").prop('hidden', false);
             $(".news").append(newsTemplate(topNews));
-  }) 
+            })
       },
       error: function(errorMsg) {
         alert('Oops! Something went wrong (topNews)');
       }
  })};
 
+
   function newsTemplate(topNews) {
+    //title= topNews.articles[i].title,
+    //source= topNews.articles[i].source.name,
+    //image= topNews.articles[i].urlToImage,
+    //snippet= topNews.articles[i].description,
+    //link= topNews.articles[i].url,
   let template = "<div class='newsBox'>";
-  for (let i =0;i<=9;i++) {
+  for (let i =0;i<=9;i++) {    
     template += `<h2 class="newsTitle">${topNews.articles[i].title}</h2>
-  <h3 class="newsSource">${topNews.articles[i].source.name}</h3><img src="${topNews.articles[i].urlToImage}" class="med" />
-  <p class="newsContent">${topNews.articles[i].description}</p><p class="newsURL"><a href="${topNews.articles[i].url}" target="_blank">Click here to read more</a></p>`
+  <h3 class="newsSource">${topNews.articles[i].source.name}</h3><img src="${topNews.articles[i].urlToImage}" alt="Article image" class="med" />
+  <p class="newsContent">${topNews.articles[i].description}</p></br><a class="newsURL col-12" href="${topNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
   }
   
   template += `</div>`;
     return template;
-  }
+  } 
 
 
  function gatherSearchNews() {
@@ -46,13 +51,10 @@
    let year = today.getFullYear();
    if(day<10) {
     day = '0'+day
-} 
-
-if(month<10) {
+  } if(month<10) {
     month = '0'+month
-} 
-
-today = year + '-' + month + '-' + day;
+  } 
+    today = year + '-' + month + '-' + day;
    
    let newsSearch = $(".searchNewsInput").val();
    let searchNewsEP = 'https://newsapi.org/v2/everything?' +
@@ -66,30 +68,46 @@ today = year + '-' + month + '-' + day;
       async: false,
       datatype: 'json',
       success: function(searchNews) {
-        //title = (searchNews.articles[i].title)
-        //description = (searchNews.articles[i].description)
             $(".searchNewsInput").val('');
             $('.start').prop('hidden', true);
             $(".foot").prop('hidden', false);
             $(".head").prop('hidden', false);
-            $(".news").append(newsTemplate(searchNews));
+            $(".news").append(SnewsTemplate(searchNews));
       },
       error: function(errorMsg) {
         alert('Oops! Something went wrong(searchNews)');
       }
  })};
 
-  function newsTemplate(searchNews) {
+    $('.searchNewsInput').keypress(function(e){
+      if(e.which==13){
+        e.preventDefault();
+        $('#snBtn').click();
+      }
+    })
+
+  function SnewsTemplate(searchNews) {
+    //title = searchNews.articles[i].title
+    //source = searchNews.articles[i].source.name
+    //image = searchNews.articles[i].urlToImage
+    //snippet = searchNews.articles[i].description
+    //link = searchNews.articles[i].url
+    if(searchNews.totalResults == 0) {
+      $('.start').prop('hidden', false);
+            $(".foot").prop('hidden', true);
+            $(".head").prop('hidden', true);
+     $('.eBox').html('<p>I guess no news is good news. Try another topic.</p>');
+    }else{
   let template = "<div class='newsBox'>";
   for (let i =0;i<=9;i++) {
     template += `<h2 class="newsTitle">${searchNews.articles[i].title}</h2>
-  <h3 class="newsSource">${searchNews.articles[i].source.name}</h3><img src="${searchNews.articles[i].urlToImage}" class="med" />
-  <p class="newsContent">${searchNews.articles[i].description}</p><p class="newsURL"><a href="${searchNews.articles[i].url}" target="_blank">Click here to read more</a></p>`
+  <h3 class="newsSource">${searchNews.articles[i].source.name}</h3><img src="${searchNews.articles[i].urlToImage}" alt="Article Image" class="med" />
+  <p class="newsContent">${searchNews.articles[i].description}</p></br><a class="newsURL col-6" href="${searchNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
   }
   
   template += `</div>`;
     return template;
-  }
+  }};
 
  function gatherDef() {
    //dictionary api info
@@ -101,11 +119,6 @@ today = year + '-' + month + '-' + day;
       async: false,
       datatype: 'json',
       success: function(word) {
-        //word = (word.results[1].headword)
-        //part of speech =(word.results[1].part_of_speech)
-        //definition = (word.results[1].senses[0].definition);
-        //example = word.results[0].senses[0].examples[0].text;
-        //pronunciation = word.results[9].pronunciations[0].ipa
           $('.defineInput').val('');
           $(".lbContainer").prop('hidden', false);
           $(".lbContainer").html(defMU(word));
@@ -115,14 +128,31 @@ today = year + '-' + month + '-' + day;
       }
  })};
 
+    $('.defineInput').keypress(function(e){
+      if(e.which==13){
+        e.preventDefault();
+        $('#define').click();
+      }
+    })
 
 function defMU(word) {
-  //html for definition
-  return `
+  //markup for definition 
+    //headword = word.results[1].headword;
+    //partofspeech = word.results[1].part_of_speech;
+    //definition = word.results[1].senses[0].definition;
+    //example = word.results[0].senses[0].examples[0].text;
+    //pronunciation = word.results[9].pronunciations[0].ipa;
+    if(word.count == 0){
+        return `
+  <div class="lightbox defBox"><p>Uh oh! Looks like something went wrong. Try another word.</p></div>`
+    }else{
+      return `
   <div class="lightbox defBox">
+  <button type="button" id="close"> x </button>
   <h2 class="headword">${word.results[0].headword} | <i>${word.results[0].part_of_speech}</i></h2>
   <p class="definition">${word.results[0].senses[0].definition}</p><p>"${word.results[0].senses[0].examples[0].text}"</p>
   </div>`
+    }
   };
 
 
@@ -136,8 +166,6 @@ function defMU(word) {
       async: false,
       dataType: 'json',      
       success: function(wiki) {
-        //wiki title(wiki[1][0])
-        //wiki info = (wiki[2][0])
           $('.wikiInput').val('');
           $(".lbContainer").prop('hidden', false);
           $(".lbContainer").html(wikiMU(wiki));
@@ -147,20 +175,36 @@ function defMU(word) {
       }
  })};
 
+ $('.wikiInput').keypress(function(e){
+      if(e.which==13){
+        e.preventDefault();
+        $('#wiki').click();
+      }
+    })
+
 function wikiMU(wiki) {
-  //html for wikipedia search 
+  //html for wikipedia search
+  //title = wiki[1]
+  //snippet = wiki[2]
+  //link = wiki[3] 
+  if(wiki[1].length == 0) {
+    return `
+  <div class="lightbox wikiBox"><p>Uh oh! Looks like something went wrong. Try another topic.</p></div>`
+  }else{
   return `
   <div class="lightbox wikiBox">
-  <h2 class="wikiTitle">${wiki[1]}</h2>
-  <p class="wikiContent">${wiki[2]}</p>
-  <p class="wikiLink"><a href="${wiki[3]}" target="_blank">Click here for more info</a></p>
+  <h2 class="wikiTitle">${wiki[1][0]}</h2>
+  <p class="wikiContent">${wiki[2][0]}</p>
+  <p class="wikiLink"><a href="${wiki[3][0]}" target="_blank">Click here for more info</a></p>
   </div>`
+  }
 };
 
 function toTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
  
 function smarterNews() {
   $('#define').on('click', function(e) {

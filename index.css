@@ -1,10 +1,82 @@
-* {
-  box-sizing: border-box;
+body {
+  background-image: url('http://www.torinospiritualita.org/wp-content/uploads/2017/08/xJ2C0F.jpg');
 }
 
-.header {
-  margin-left: 0 auto;
-  margin-right: 0 auto;
+
+.head {
+  color: white;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
+  border-bottom: 1px solid black;
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  max-height: 100px;
+  float: clear;
+}
+
+header>* {
+  display: inline;
+  float: left;
+  margin: auto;
+}
+
+#top {
+  color: darkgreen;
+  background: greenyellow;
+  border: 1px solid darkgreen;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+#top:hover {
+  cursor: pointer;
+  background: darkgreen;
+  color: greenyellow;
+  transition-duration: 2s;
+  transition: ease-in-out;
+}
+
+.lightbox {
+  background: black;
+  color: white;
+  width: 100%;
+  padding: 5px;
+}
+
+#close {
+  color: white;
+  border: 1px solid white;
+  position: relative;
+  float: right;
+  padding: 2px;
+  background-color: black;
+}
+
+.newsURL {
+  color: darkgreen;
+  background: white;
+  border: 1px solid darkgreen;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.newsURL:hover {
+  color: white;
+  background: darkgreen;
+  border: 1px solid darkgreen;
+  text-decoration: underline;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.navField {
+  border: none;
 }
 
 
@@ -15,24 +87,144 @@ footer {
 .cite {
   float: right;
   padding: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+  text-align: center;
+  font-weight: bolder;
+  text-decoration: none;
 }
+
+.citeLink {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+  text-align: center;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
 
 .mainBox {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+  background-color: rgba(80, 94, 54, 0.473);
+  border-radius: 5px;
+  height: auto;
+  width: auto;
+  margin: auto;
+  padding: 30px;
 }
 
-.logo, .tnBtn, .snBtn, .searchNewsInput {
+
+
+.tnBtn, .snBtn {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
-  //padding: 10px;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  padding: 3%;
+  border: 1px solid white;
+  background-color: rgba(80, 94, 54, 0.767);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 120%;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+}
+
+.tnBtn:hover, .snBtn:hover {
+  color: rgba(80, 94, 54, 0.767);
+  background-color: white;
+  font-weight: bolder;
+  transition-duration: 1s;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+
+
+.snField {
+  border: none;
+}
+
+.searchNewsInput {
+  color: rgb(95, 150, 13);
+  text-align: center;
+  align-content: center;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid rgb(80, 94, 54);
+  border-radius: 0px;
+  background-color: white;
+  height: 50px;
+}
+
+.logo {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-shadow: black 2px 2px 2px;
+    text-align: center;
+    font-size: 220%;
+}
+
+.navLogo {
+  font-size: 100%;
 }
 
 .newsBox {
+  z-index: 1;
+  position: relative;
   border: 1px solid black;
-  padding: 10px;
-  margin: 5px;
+  box-shadow: 0px 2px 5px;
+  -moz-box-shadow: 0px 2px 5px;
+  -webkit-box-shadow: 0px 2px 5px; 
+  padding: 2%;
+  margin-top: 15%;
+  background-color: rgb(225, 247, 223);
+}
+
+.tagBox {
+  background-color: rgba(7, 0, 0, .5);
+  padding: 5%;
+  box-shadow: rgba(0, 128, 0, 0.582) -10px 10px 100px;
+  -moz-box-shadow: rgba(0, 128, 0, 0.582) -10px 10px 100px;
+  -webkit-box-shadow: rgba(0, 128, 0, 0.582) -10px 10px 100px;
+}
+
+.breaker {
+  font-size: 120%;
+  color: green;
+  text-align: center;
+  animation: breaker;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: linear;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.info {
+  color: rgb(141, 224, 15);
+  text-shadow: green 2px 2px 2px;
+  font-size: 130%;
+}
+
+.stuff {
+  color: white;
+  text-shadow: black 2px 2px 2px;
+  font-size: 130%;
+}
+
+.tnBox, .snBox {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.start {
+  text-align: center;
+  padding: 5%;
+  margin: auto;
 }
 
 .med {
@@ -42,8 +234,82 @@ footer {
 
 .wikiBox {
   border: 1px solid red;
+  padding: 10px;
+  margin: 5px;
 }
 
 .defBox {
   border: 1px solid green;
+  padding: 10px;
+  margin: 5px;
+}
+
+.newsContent {
+  text-indent: 10%;
+  font-family: 'book antiqua';
+}
+
+.newsTitle {
+  font-family: 'book antiqua';
+  text-shadow: grey 0px 2px 5px;
+}
+
+.newsSource {
+  text-decoration: underline;
+}
+
+.newsContent::first-letter {
+  font-weight: bolder;
+  font-size: 150%;
+  font-family: "old english text MT";
+}
+
+@keyframes breaker {
+    from {color: darkgreen;
+          border-top: 1px solid darkgreen;
+          border-bottom: 1px solid darkgreen;}
+    to {color: greenyellow;
+        border-top: 1px solid greenyellow;
+        border-bottom: 1px solid greenyellow;}
+}
+
+
+@keyframes bounceIn {
+  from,
+  20%, 40%, 60%, 80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-duration: 1.75s;
+  animation-name: bounceIn;
 }
