@@ -17,6 +17,7 @@
             $(".foot").prop('hidden', false);
             $(".head").prop('hidden', false);
             $(".news").append(newsTemplate(topNews));
+            toTop();
             })
       },
       error: function(errorMsg) {
@@ -25,23 +26,27 @@
  })};
 
 
+function getArticleProperty(article, property, message) {
+  return article && article[property] ? article[property] : message;
+}
+ 
   function newsTemplate(topNews) {
     //title= topNews.articles[i].title,
     //source= topNews.articles[i].source.name,
     //image= topNews.articles[i].urlToImage,
     //snippet= topNews.articles[i].description,
     //link= topNews.articles[i].url,
+
   let template = "<div class='newsBox'>";
   for (let i =0;i<=9;i++) {    
     template += `<h2 class="newsTitle">${topNews.articles[i].title}</h2>
-  <h3 class="newsSource">${topNews.articles[i].source.name}</h3><img src="${topNews.articles[i].urlToImage}" alt="Article image" class="med" />
-  <p class="newsContent">${topNews.articles[i].description}</p></br><a class="newsURL col-12" href="${topNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
+  <h3 class="newsSource">${topNews.articles[i].source.name}</h3><img src="${getArticleProperty(topNews.articles[i],'urlToImage',"<p>photo not found</p>")}" alt="Article image" class="med" />
+  <p class="newsContent">${getArticleProperty(topNews.articles[i],'description',"Click below to read this article.")}</p></br><a class="newsURL col-12" href="${topNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
   }
   
   template += `</div>`;
     return template;
-  } 
-
+  }
 
  function gatherSearchNews() {
    //search news api info
@@ -73,6 +78,7 @@
             $(".foot").prop('hidden', false);
             $(".head").prop('hidden', false);
             $(".news").append(SnewsTemplate(searchNews));
+
       },
       error: function(errorMsg) {
         alert('Oops! Something went wrong(searchNews)');
@@ -96,13 +102,15 @@
       $('.start').prop('hidden', false);
             $(".foot").prop('hidden', true);
             $(".head").prop('hidden', true);
+            $('.eBox').prop('hidden', false);
      $('.eBox').html('<p>I guess no news is good news. Try another topic.</p>');
     }else{
+      toTop();
   let template = "<div class='newsBox'>";
   for (let i =0;i<=9;i++) {
     template += `<h2 class="newsTitle">${searchNews.articles[i].title}</h2>
-  <h3 class="newsSource">${searchNews.articles[i].source.name}</h3><img src="${searchNews.articles[i].urlToImage}" alt="Article Image" class="med" />
-  <p class="newsContent">${searchNews.articles[i].description}</p></br><a class="newsURL col-6" href="${searchNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
+  <h3 class="newsSource">${searchNews.articles[i].source.name}</h3><img src="${getArticleProperty(searchNews.articles[i],'urlToImage','Photo not found')}" alt="Article Image" class="med" />
+  <p class="newsContent">${getArticleProperty(searchNews.articles[i],'description','Click below to read this article.')}</p></br><a class="newsURL col-12" href="${searchNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
   }
   
   template += `</div>`;
@@ -122,6 +130,7 @@
           $('.defineInput').val('');
           $(".lbContainer").prop('hidden', false);
           $(".lbContainer").html(defMU(word));
+          closeBox();
       },
       error: function(errorMsg) {
         alert('Oops! Something went wrong(define)');
@@ -135,6 +144,18 @@
       }
     })
 
+function closeBox() {
+  $('#close').on('click',function(e) {
+    $(".lbContainer").html('');
+  })
+}
+
+
+function getDefineProperty(word, property, message) {
+  return word && word[property] ? word[property] : message;
+}
+
+
 function defMU(word) {
   //markup for definition 
     //headword = word.results[1].headword;
@@ -142,15 +163,15 @@ function defMU(word) {
     //definition = word.results[1].senses[0].definition;
     //example = word.results[0].senses[0].examples[0].text;
     //pronunciation = word.results[9].pronunciations[0].ipa;
-    if(word.count == 0){
+    if(word.count == 0) {
         return `
-  <div class="lightbox defBox"><p>Uh oh! Looks like something went wrong. Try another word.</p></div>`
-    }else{
+  <div class="lightbox defBox col-6"><button type="button" id="close"> x </button><p>Uh oh! Looks like something went wrong. Try another word.</p></div>`
+    } else {
       return `
-  <div class="lightbox defBox">
+  <div class="lightbox defBox col-6">
   <button type="button" id="close"> x </button>
   <h2 class="headword">${word.results[0].headword} | <i>${word.results[0].part_of_speech}</i></h2>
-  <p class="definition">${word.results[0].senses[0].definition}</p><p>"${word.results[0].senses[0].examples[0].text}"</p>
+  <p class="definition">${word.results[0].senses[0].definition[0]}</p>
   </div>`
     }
   };
@@ -169,6 +190,7 @@ function defMU(word) {
           $('.wikiInput').val('');
           $(".lbContainer").prop('hidden', false);
           $(".lbContainer").html(wikiMU(wiki));
+          closeBox();
       },
       error: function(errorMsg) {  
         alert('Oops! Something went wrong(wiki)');
@@ -189,16 +211,23 @@ function wikiMU(wiki) {
   //link = wiki[3] 
   if(wiki[1].length == 0) {
     return `
-  <div class="lightbox wikiBox"><p>Uh oh! Looks like something went wrong. Try another topic.</p></div>`
+  <div class="lightbox wikiBox col-6"><button type="button" id="close"> x </button><p>Uh oh! Looks like something went wrong. Try another topic.</p></div>`
   }else{
   return `
-  <div class="lightbox wikiBox">
+  <div class="lightbox wikiBox col-6">
+  <button type="button" id="close"> x </button>
   <h2 class="wikiTitle">${wiki[1][0]}</h2>
   <p class="wikiContent">${wiki[2][0]}</p>
-  <p class="wikiLink"><a href="${wiki[3][0]}" target="_blank">Click here for more info</a></p>
+  <p><a href="${wiki[3][0]}" target="_blank" class="wikiLink">Click here for more info</a></p>
   </div>`
   }
 };
+
+function dropDown() {
+$('.clickable').on('click', function(){
+  $('.dropDown').toggle();
+})
+}
 
 function toTop() {
     document.body.scrollTop = 0;
@@ -224,6 +253,9 @@ function smarterNews() {
     toTop();
   })
    gatherTopNews();
+   closeBox();
+   dropDown();
 }
 
 $(smarterNews);
+

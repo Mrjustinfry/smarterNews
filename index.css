@@ -5,21 +5,32 @@ body {
 
 .head {
   color: white;
-  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
+  background-color: rgb(80, 94, 54);
   border-bottom: 1px solid black;
+  box-shadow: 0px 0px 20px greenyellow;
+  -moz-box-shadow: 0px 0px 20px greenyellow;
+  -webkit-box-shadow: 0px 0px 20px greenyellow;
   z-index: 10;
   position: fixed;
   top: 0px;
+  right: 0px;
   width: 100%;
-  max-height: 100px;
-  float: clear;
+  height: auto;
+  //float: clear;
 }
 
-header>* {
-  display: inline;
-  float: left;
-  margin: auto;
+ul, li {
+  list-style: none;
 }
+
+
+
+.guide {
+  text-align: center;
+  color: white;
+  margin: 0px;
+}
+
 
 #top {
   color: darkgreen;
@@ -40,10 +51,45 @@ header>* {
 }
 
 .lightbox {
-  background: black;
+  position: relative;
+  background: green;
+  font-family: 'Cormorant SC', serif;
+  font-size: 130%;
   color: white;
   width: 100%;
   padding: 5px;
+}
+
+.eBox {
+  background: green;
+  font-family: 'Cormorant SC', serif;
+  font-size: 130%;
+  color: white;
+  width: 100%;
+  padding: 5px;
+}
+
+.clickable {
+  color: darkgreen;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+
+
+.sml {
+  height: 40px;
+  width: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0px;
+}
+
+.clickable:hover {
+  background-image: linear-gradient(rgb(80, 94, 54),rgba(73, 230, 73, 0.336), rgba(80, 250, 80, 0.295));
+  font-weight: bolder;
+  transition-duration: 5s;
+  cursor: pointer;
 }
 
 #close {
@@ -51,11 +97,15 @@ header>* {
   border: 1px solid white;
   position: relative;
   float: right;
-  padding: 2px;
-  background-color: black;
+  background-color: green;
+  font-size: 1.2em;
 }
 
-.newsURL {
+#close:hover {
+  cursor: pointer;
+}
+
+.newsURL, .wikiLink {
   color: darkgreen;
   background: white;
   border: 1px solid darkgreen;
@@ -63,10 +113,11 @@ header>* {
   border-radius: 3px;
   padding: 5px;
   width: 100%;
+  overflow: auto;
   text-align: center;
 }
 
-.newsURL:hover {
+.newsURL:hover, .wikiLink:hover {
   color: white;
   background: darkgreen;
   border: 1px solid darkgreen;
@@ -131,6 +182,17 @@ footer {
   text-shadow: black 2px 2px 2px;
 }
 
+.dBtn, .wBtn {
+  text-align: center;
+  width: 100%;
+  border: 1px solid white;
+  background-color: rgba(80, 94, 54, 0.767);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 120%;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+}
+
 .tnBtn:hover, .snBtn:hover {
   color: rgba(80, 94, 54, 0.767);
   background-color: white;
@@ -140,6 +202,14 @@ footer {
   cursor: pointer;
 }
 
+.dBtn:hover, .wBtn:hover {
+  color: rgba(80, 94, 54, 0.767);
+  background-color: white;
+  font-weight: bolder;
+  transition-duration: 1s;
+  text-shadow: none;
+  cursor: pointer;
+}
 
 
 .snField {
@@ -156,6 +226,22 @@ footer {
   border-radius: 0px;
   background-color: white;
   height: 50px;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.wikiInput, .defineInput {
+  color: rgb(95, 150, 13);
+  text-align: center;
+  align-content: center;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid rgb(144, 221, 2);
+  border-radius: 0px;
+  background-color: white;
+  height: 50px;
+  font-size: 110%;
+  font-weight: bold;
 }
 
 .logo {
@@ -167,7 +253,8 @@ footer {
 }
 
 .navLogo {
-  font-size: 100%;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .newsBox {
@@ -178,7 +265,6 @@ footer {
   -moz-box-shadow: 0px 2px 5px;
   -webkit-box-shadow: 0px 2px 5px; 
   padding: 2%;
-  margin-top: 15%;
   background-color: rgb(225, 247, 223);
 }
 
@@ -199,8 +285,8 @@ footer {
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
   animation-timing-function: linear;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
 }
 
 .info {
@@ -212,7 +298,9 @@ footer {
 .stuff {
   color: white;
   text-shadow: black 2px 2px 2px;
-  font-size: 130%;
+  font-size: 175%;
+  font-weight: bold;
+  letter-spacing: .02em;
 }
 
 .tnBox, .snBox {
@@ -230,27 +318,35 @@ footer {
 .med {
   height: 50%;
   width: 50%;
+  border: 1px solid black;
 }
 
-.wikiBox {
-  border: 1px solid red;
-  padding: 10px;
-  margin: 5px;
+.dBox, .sBox {
+  display: inline-block;
+  padding: inherit;
+  width: 100%;
+  height: auto;
 }
 
-.defBox {
-  border: 1px solid green;
+.defBox, .wikiBox {
+  border: 1px solid black;
   padding: 10px;
   margin: 5px;
+  height: auto;
+  width: auto;
 }
+
 
 .newsContent {
   text-indent: 10%;
-  font-family: 'book antiqua';
+  font-family: 'Cormorant SC', serif;
+  font-size: 130%;
+  font-weight: bold;
 }
 
 .newsTitle {
-  font-family: 'book antiqua';
+  font-family: 'Cormorant SC', serif;
+  font-size: 200%;
   text-shadow: grey 0px 2px 5px;
 }
 
@@ -261,7 +357,7 @@ footer {
 .newsContent::first-letter {
   font-weight: bolder;
   font-size: 150%;
-  font-family: "old english text MT";
+  font-family: 'Almendra SC', serif;
 }
 
 @keyframes breaker {
