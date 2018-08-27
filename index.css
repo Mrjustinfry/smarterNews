@@ -217,7 +217,6 @@ footer {
 }
 
 .searchNewsInput {
-  color: rgb(95, 150, 13);
   text-align: center;
   align-content: center;
   width: 100%;
@@ -231,7 +230,6 @@ footer {
 }
 
 .wikiInput, .defineInput {
-  color: rgb(95, 150, 13);
   text-align: center;
   align-content: center;
   width: 100%;
