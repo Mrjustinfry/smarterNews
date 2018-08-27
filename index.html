@@ -15,30 +15,35 @@
       <!-- header for active view -->
       <header class="head" role="banner" aria-live="assertive" hidden>
         <ul>
-<li class="dropDown" hidden><div class="dBox col-6">
-        <fieldset class="navField">
-        <form action="#" class="defineForm">
-          <p class="guide">Define a word</p>
-        <label for="query"></label>
-        <input type="text" class="defineInput" placeholder="Search the Dictionary..." aria-label="search">
-        <button type="button" id="define" class="dBtn nav" role="button">Search</button>
-        </form>
-        </fieldset>
-        </div></li>
-<li class="dropDown" hidden><div class="sBox col-6">
-        <fieldset  class="navField">
-        <form action="#" class="wikiForm">
-          <p class="guide">Learn more about a topic</p>
-        <label for="query"></label>
-        <input type="text" class="wikiInput" placeholder="Search Wikipedia..." aria-label="search">
-        <button type="button" id="wiki" class="wBtn nav" role="button">Search</button>
-        </form>
-        </fieldset>
-        </div></li>
-        </ul><div class="clickable col-12">
+          <li class="dropDown" hidden>
+            <div class="dBox col-6">
+            <fieldset class="navField">
+              <form action="#" class="defineForm">
+                <p class="guide">Define a word</p>
+                <label for="query"></label>
+                <input type="text" class="defineInput" placeholder="Search the Dictionary..." aria-label="search">
+                <button type="button" id="define" class="dBtn nav" role="button">Search</button>
+              </form>
+            </fieldset>
+            </div>
+          </li>
+          <li class="dropDown" hidden>
+            <div class="sBox col-6">
+            <fieldset  class="navField">
+              <form action="#" class="wikiForm">
+                <p class="guide">Learn more about a topic</p>
+                <label for="query"></label>
+                <input type="text" class="wikiInput" placeholder="Search Wikipedia..." aria-label="search">
+                <button type="button" id="wiki" class="wBtn nav" role="button">Search</button>
+              </form>
+            </fieldset>
+            </div>
+          </li>
+        </ul>
+        <div class="clickable col-12">
           <h1 class="navLogo logo col-12">SmarterNews</h1>
           <img class="sml" alt="menu icon" src="https://i.stack.imgur.com/jJa0Y.png" />
-         </div>
+        </div>
         <div class="lbContainer col-12" aria-live="polite" hidden></div>
         </header>
       <main class="row">
@@ -46,32 +51,32 @@
         <!-- News section -->
         <div class="start col-12">
           <div class="tagBox">
-        <h1 class="logo bounceIn">SmarterNews</h1>
-        <p class="info">A news app that gives you more</p>
-        </div>
-        <br/>
-        <div class="tnBox col-6">
-        <h4 class="stuff">Start with the top headlines...</h4>
-        <button class="tnBtn" role="button">Top News</button>
-        </div>
+            <h1 class="logo bounceIn">SmarterNews</h1>
+            <p class="info">A news app that gives you more</p>
+          </div>
+          <br/>
+          <div class="tnBox col-6">
+            <h4 class="stuff">Start with the top headlines...</h4>
+            <button class="tnBtn" role="button">Top News</button>
+          </div>
         <div class="snBox col-6">
         <fieldset class="snField">
           <p class="stuff">...or search the news you want to see.</p>
-        <form action="#" class="searchNewsForm">
-        <label for="query"></label>
-        <input type="text" class="searchNewsInput" placeholder="Enter a search term" aria-label="search"></br>
-        <button type="button" id="snBtn" class="snBtn">Search News</button>
-        </fieldset>
-        <div class="eBox col-12" aria-live="assertive" hidden></div>
-        </div>
-      </form>
+          <form action="#" class="searchNewsForm">
+            <label for="query"></label>
+            <input type="text" class="searchNewsInput" placeholder="Enter a search term" aria-label="search"></br>
+            <button type="button" id="snBtn" class="snBtn">Search News</button>
+              <div class="eBox col-12" aria-live="assertive" hidden></div>
+              </div>
+            </form>
+          </fieldset>
         </div>
         <div class="news"></div>
       </section>
       <!-- footer for active view -->
       <footer class="foot" role="contentinfo" aria-live="polite" hidden>
         <button type="button" id="top">Back to top</button>
-	<button type="button" id="home">Home</button>
+	       <button type="button" id="home">Home</button>
         <span class="cite">Powered by <a class="citeLink" href="https://newsapi.org/" target="_blank">NewsAPI.org</a>.</span>
       </footer>
     </main>

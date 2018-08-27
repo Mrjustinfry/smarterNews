@@ -151,10 +151,6 @@ function closeBox() {
 }
 
 
-function getDefineProperty(word, property, message) {
-  return word && word[property] ? word[property] : message;
-}
-
 
 function defMU(word) {
   //markup for definition 
