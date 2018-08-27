@@ -32,7 +32,7 @@ ul, li {
 }
 
 
-#top {
+#top, #home {
   color: darkgreen;
   background: greenyellow;
   border: 1px solid darkgreen;
@@ -42,7 +42,7 @@ ul, li {
   text-align: center;
 }
 
-#top:hover {
+#top:hover, #home:hover {
   cursor: pointer;
   background: darkgreen;
   color: greenyellow;
