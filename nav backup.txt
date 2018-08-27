@@ -1,0 +1,46 @@
+<div class="dBox col-3">
+        <fieldset class="navField">
+        <form action="#" class="defineForm">
+        <label for="query"></label>
+        <input type="text" class="defineInput" placeholder="Search the Dictionary..." aria-label="search">
+        <button type="button" id="define" class="dBtn nav" role="button">Search</button>
+        <p class="guide">Define a word</p>
+        </form>
+        </fieldset>
+        </div>
+        <h1 class="navLogo logo col-6">SmarterNews</h1>
+        <div class="sBox col-3">
+        <fieldset  class="navField">
+        <form action="#" class="wikiForm">
+        <label for="query"></label>
+        <input type="text" class="wikiInput" placeholder="Search Wikipedia..." aria-label="search">
+        <button type="button" id="wiki" class="wBtn nav" role="button">Search</button>
+        <p class="guide">Learn more about a topic</p>
+        </form>
+        </fieldset>
+        </div>
+        <div class="lbContainer col-12" aria-live="polite" hidden></div>
+--------------------------------------------------------------------------------------------------------
+<ul>
+<li><div class="dBox col-3">
+        <fieldset class="navField">
+        <form action="#" class="defineForm">
+        <label for="query"></label>
+        <input type="text" class="defineInput" placeholder="Search the Dictionary..." aria-label="search">
+        <button type="button" id="define" class="dBtn nav" role="button">Search</button>
+        <p class="guide">Define a word</p>
+        </form>
+        </fieldset>
+        </div></li>
+<li><div class="sBox col-3">
+        <fieldset  class="navField">
+        <form action="#" class="wikiForm">
+        <label for="query"></label>
+        <input type="text" class="wikiInput" placeholder="Search Wikipedia..." aria-label="search">
+        <button type="button" id="wiki" class="wBtn nav" role="button">Search</button>
+        <p class="guide">Learn more about a topic</p>
+        </form>
+        </fieldset>
+        </div></li>
+<li><h1 class="navLogo logo col-6">SmarterNews</h1></li>
+</ul>

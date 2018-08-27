@@ -234,6 +234,16 @@ function toTop() {
     document.documentElement.scrollTop = 0;
 }
 
+function toHome() {
+  $('#home').on('click', function() {
+    $('.newsBox').text("");
+    $('.newsBox').prop('hidden',true);
+    $('.head').prop('hidden', true);
+    $('.foot').prop('hidden', true);
+    $('.start').prop('hidden', false);
+  })
+}
+
  
 function smarterNews() {
   $('#define').on('click', function(e) {
@@ -255,6 +265,7 @@ function smarterNews() {
    gatherTopNews();
    closeBox();
    dropDown();
+   toHome();
 }
 
 $(smarterNews);

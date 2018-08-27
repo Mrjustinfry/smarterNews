@@ -32,7 +32,7 @@
 
 
 .newsBox {
-  margin-top: 30%;
+  margin-top: 15%;
 }
 
 .sBox, .dBox {
@@ -51,9 +51,7 @@
   border-right: 1px solid white;
 }
 
-.newsBox {
-   margin-top: 15%;
-}
+
   .col-3 {
     width: 25%;
   }
