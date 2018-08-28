@@ -1,4 +1,4 @@
- 'use strict';
+   'use strict';
 
   //API functions
  function gatherTopNews() {
@@ -21,7 +21,7 @@
             })
       },
       error: function(errorMsg) {
-        alert('Oops! Something went wrong (topNews)');
+        alert('Oops! Something went wrong');
       }
  })};
 
@@ -81,7 +81,7 @@ function getArticleProperty(article, property, message) {
 
       },
       error: function(errorMsg) {
-        alert('Oops! Something went wrong(searchNews)');
+        alert('Oops! Something went wrong');
       }
  })};
 
@@ -133,7 +133,7 @@ function getArticleProperty(article, property, message) {
           closeBox();
       },
       error: function(errorMsg) {
-        alert('Oops! Something went wrong(define)');
+        alert('Oops! Something went wrong');
       }
  })};
 
@@ -161,10 +161,10 @@ function defMU(word) {
     //pronunciation = word.results[9].pronunciations[0].ipa;
     if(word.count == 0) {
         return `
-  <div class="lightbox defBox col-6"><button type="button" id="close"> x </button><p>Uh oh! Looks like something went wrong. Try another word.</p></div>`
+  <div class="lightbox defBox col-12"><button type="button" id="close"> x </button><p>Uh oh! Looks like something went wrong. Try another word.</p></div>`
     } else {
       return `
-  <div class="lightbox defBox col-6">
+  <div class="lightbox defBox col-12">
   <button type="button" id="close"> x </button>
   <h2 class="headword">${word.results[0].headword} | <i>${word.results[0].part_of_speech}</i></h2>
   <p class="definition">${word.results[0].senses[0].definition[0]}</p>
@@ -189,7 +189,7 @@ function defMU(word) {
           closeBox();
       },
       error: function(errorMsg) {  
-        alert('Oops! Something went wrong(wiki)');
+        alert('Oops! Something went wrong');
       }
  })};
 
@@ -207,10 +207,10 @@ function wikiMU(wiki) {
   //link = wiki[3] 
   if(wiki[1].length == 0) {
     return `
-  <div class="lightbox wikiBox col-6"><button type="button" id="close"> x </button><p>Uh oh! Looks like something went wrong. Try another topic.</p></div>`
+  <div class="lightbox wikiBox col-12"><button type="button" id="close"> x </button><p>Uh oh! Looks like something went wrong. Try another topic.</p></div>`
   }else{
   return `
-  <div class="lightbox wikiBox col-6">
+  <div class="lightbox wikiBox col-12">
   <button type="button" id="close"> x </button>
   <h2 class="wikiTitle">${wiki[1][0]}</h2>
   <p class="wikiContent">${wiki[2][0]}</p>
@@ -265,4 +265,3 @@ function smarterNews() {
 }
 
 $(smarterNews);
-

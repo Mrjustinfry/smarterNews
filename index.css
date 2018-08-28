@@ -5,72 +5,74 @@ body {
 
 .head {
   color: white;
-  background-color: rgb(80, 94, 54);
-  border-bottom: 1px solid black;
-  box-shadow: 0px 0px 20px greenyellow;
-  -moz-box-shadow: 0px 0px 20px greenyellow;
-  -webkit-box-shadow: 0px 0px 20px greenyellow;
+  background-color: cornflowerblue;
+  border-bottom: 1px solid darkblue;
+  box-shadow: 0px 0px 20px lightblue;
+  -moz-box-shadow: 0px 0px 20px lightblue;
+  -webkit-box-shadow: 0px 0px 20px lightblue;
   z-index: 10;
   position: fixed;
   top: 0px;
   right: 0px;
   width: 100%;
   height: auto;
-  //float: clear;
 }
 
 ul, li {
   list-style: none;
+  padding: 0px;
 }
 
 
 
 .guide {
   text-align: center;
-  color: white;
-  margin: 0px;
+  color: darkblue;
+  font-size: 1.2em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
-#top, #home  {
-  color: darkgreen;
-  background: greenyellow;
-  border: 1px solid darkgreen;
+#top {
+  color: black;
+  background: lightblue;
+  border: 1px solid darkblue;
   border-radius: 3px;
   padding: 5px;
   width: 100%;
   text-align: center;
+  margin-top: 0.5%;
+  font-family: monospace;
 }
 
-#top:hover, #home:hover {
+#top:hover {
   cursor: pointer;
-  background: darkgreen;
-  color: greenyellow;
+  background: white;
+  color: blue;
   transition-duration: 2s;
   transition: ease-in-out;
 }
 
 .lightbox {
   position: relative;
-  background: green;
+  background: whitesmoke;
   font-family: 'Cormorant SC', serif;
-  font-size: 130%;
-  color: white;
-  width: 100%;
+  font-size: 1.1em;
+  color: darkblue;
   padding: 5px;
+  margin-bottom: 0.5%;
 }
 
 .eBox {
-  background: green;
+  background: lightblue;
   font-family: 'Cormorant SC', serif;
-  font-size: 130%;
-  color: white;
+  color: darkblue;
   width: 100%;
   padding: 5px;
 }
 
 .clickable {
-  color: darkgreen;
+  color: rgb(92, 121, 248);
   text-align: center;
   width: 100%;
   height: auto;
@@ -86,9 +88,8 @@ ul, li {
 }
 
 .clickable:hover {
-  background-image: linear-gradient(rgb(80, 94, 54),rgba(73, 230, 73, 0.336), rgba(80, 250, 80, 0.295));
-  font-weight: bolder;
-  transition-duration: 5s;
+  background-image: linear-gradient(
+  cornflowerblue,darkblue);
   cursor: pointer;
 }
 
@@ -97,33 +98,38 @@ ul, li {
   border: 1px solid white;
   position: relative;
   float: right;
-  background-color: green;
+  background-color: rgba(40, 14, 185, 0.767);
   font-size: 1.2em;
+  border-radius: 5px;
 }
 
 #close:hover {
   cursor: pointer;
+  color: rgb(40, 14, 185);
+  background-color: white;
+  transition-duration: 1s;
 }
 
 .newsURL, .wikiLink {
-  color: darkgreen;
-  background: white;
-  border: 1px solid darkgreen;
+  color: darkblue;
+  background: lightsteelblue;
+  border: 1px solid blue;
   text-decoration: none;
   border-radius: 3px;
   padding: 5px;
   width: 100%;
   overflow: auto;
   text-align: center;
+  font-family: 'Courier New', Courier, monospace
 }
 
 .newsURL:hover, .wikiLink:hover {
-  color: white;
-  background: darkgreen;
-  border: 1px solid darkgreen;
-  text-decoration: underline;
+  color: blue;
+  background: white;
+  border: 1px solid blue;
   border-radius: 3px;
   cursor: pointer;
+  transition-duration: 2s;
 }
 
 .navField {
@@ -157,7 +163,7 @@ footer {
 
 
 .mainBox {
-  background-color: rgba(80, 94, 54, 0.473);
+  background-color: rgba(0, 0, 2, 0.473);
   border-radius: 5px;
   height: auto;
   width: auto;
@@ -175,26 +181,46 @@ footer {
   margin-top: 5%;
   padding: 3%;
   border: 1px solid white;
-  background-color: rgba(80, 94, 54, 0.767);
+  background-color: rgba(40, 14, 185, 0.767);
   font-family: 'Courier New', Courier, monospace;
   font-size: 120%;
   color: white;
   text-shadow: black 2px 2px 2px;
 }
 
-.dBtn, .wBtn {
+.dBtn, .wBtn, #home {
   text-align: center;
   width: 100%;
   border: 1px solid white;
-  background-color: rgba(80, 94, 54, 0.767);
+  background-color: rgba(12, 8, 202, 0.767);
   font-family: 'Courier New', Courier, monospace;
   font-size: 120%;
   color: white;
   text-shadow: black 2px 2px 2px;
 }
 
-.tnBtn:hover, .snBtn:hover {
-  color: rgba(80, 94, 54, 0.767);
+.tnBtn:hover, .snBtn:hover, #home:hover {
+  color: rgba(48, 27, 236, 0.767);
+  background-color: white;
+  font-weight: bolder;
+  transition-duration: 1s;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+ #home {
+  margin-top: 0px;
+  text-align: center;
+  border: 1px solid white;
+  background-color: rgba(12, 8, 202, 0.767);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 120%;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+}
+
+ #home:hover {
+  color: rgba(48, 27, 236, 0.767);
   background-color: white;
   font-weight: bolder;
   transition-duration: 1s;
@@ -203,7 +229,7 @@ footer {
 }
 
 .dBtn:hover, .wBtn:hover {
-  color: rgba(80, 94, 54, 0.767);
+  color: rgba(48, 27, 236, 0.767);
   background-color: white;
   font-weight: bolder;
   transition-duration: 1s;
@@ -217,11 +243,12 @@ footer {
 }
 
 .searchNewsInput {
+  color: blue;
   text-align: center;
   align-content: center;
   width: 100%;
   border: none;
-  border-bottom: 3px solid rgb(80, 94, 54);
+  border-bottom: 3px solid darkgray;
   border-radius: 0px;
   background-color: white;
   height: 50px;
@@ -230,11 +257,12 @@ footer {
 }
 
 .wikiInput, .defineInput {
+  color: blue;
   text-align: center;
   align-content: center;
   width: 100%;
   border: none;
-  border-bottom: 3px solid rgb(144, 221, 2);
+  border-bottom: 3px solid gray;
   border-radius: 0px;
   background-color: white;
   height: 50px;
@@ -247,7 +275,6 @@ footer {
     color: white;
     text-shadow: black 2px 2px 2px;
     text-align: center;
-    font-size: 220%;
 }
 
 .navLogo {
@@ -263,40 +290,37 @@ footer {
   -moz-box-shadow: 0px 2px 5px;
   -webkit-box-shadow: 0px 2px 5px; 
   padding: 2%;
-  background-color: rgb(225, 247, 223);
+  background-color: rgb(246, 249, 250);
 }
 
 .tagBox {
-  background-color: rgba(7, 0, 0, .5);
+  background-color: rgba(0, 0, 7, 0.651);
   padding: 5%;
-  box-shadow: rgba(0, 128, 0, 0.582) -10px 10px 100px;
-  -moz-box-shadow: rgba(0, 128, 0, 0.582) -10px 10px 100px;
-  -webkit-box-shadow: rgba(0, 128, 0, 0.582) -10px 10px 100px;
 }
 
 .breaker {
   font-size: 120%;
-  color: green;
+  color: blue;
   text-align: center;
   animation: breaker;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
   animation-timing-function: linear;
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
+  border-top: 3px solid blue;
+  border-bottom: 3px solid blue;
 }
 
 .info {
-  color: rgb(141, 224, 15);
-  text-shadow: green 2px 2px 2px;
-  font-size: 130%;
+  color: rgb(221, 233, 250);
+  text-shadow: blue 2px 2px 2px;
+  font-size: 1.3em;
 }
 
 .stuff {
   color: white;
   text-shadow: black 2px 2px 2px;
-  font-size: 175%;
+  font-size: 1.2em;
   font-weight: bold;
   letter-spacing: .02em;
 }
@@ -329,7 +353,6 @@ footer {
 .defBox, .wikiBox {
   border: 1px solid black;
   padding: 10px;
-  margin: 5px;
   height: auto;
   width: auto;
 }
@@ -338,7 +361,7 @@ footer {
 .newsContent {
   text-indent: 10%;
   font-family: 'Cormorant SC', serif;
-  font-size: 130%;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -353,17 +376,17 @@ footer {
 
 .newsContent::first-letter {
   font-weight: bolder;
-  font-size: 150%;
+  font-size: 1.5em;
   font-family: 'Almendra SC', serif;
 }
 
 @keyframes breaker {
-    from {color: darkgreen;
-          border-top: 1px solid darkgreen;
-          border-bottom: 1px solid darkgreen;}
-    to {color: greenyellow;
-        border-top: 1px solid greenyellow;
-        border-bottom: 1px solid greenyellow;}
+    from {color: blue;
+          border-top: 1px solid blue;
+          border-bottom: 1px solid blue;}
+    to {color: white;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;}
 }
 
 

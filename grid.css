@@ -25,7 +25,7 @@
   padding-right: 1.04166666%;
 }
 
-//mobile
+
 .col-3, .col-4, .col-6, .col-12 {
   width: 100%;
 }
@@ -51,6 +51,9 @@
   border-right: 1px solid white;
 }
 
+.dBox {
+  border-right: 1px solid white;
+}
 
   .col-3 {
     width: 25%;
