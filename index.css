@@ -7,6 +7,9 @@ body {
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 .head {
   color: white;
@@ -23,9 +26,16 @@ body {
   height: auto;
 }
 
+ul {
+  display: flex;
+}
+
 ul, li {
   list-style: none;
   padding: 0px;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  flex: 1;
 }
 
 
@@ -387,6 +397,10 @@ main {
   float: right;
   margin: 0 1em;
   margin-top: -.2em;
+}
+
+.burger:hover {
+  cursor: pointer;
 }
 
 .newsContent {

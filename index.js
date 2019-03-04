@@ -38,7 +38,7 @@ function getArticleProperty(article, property, message) {
     //link= topNews.articles[i].url,
 
   let template = "<div class='newsBox'>";
-  for (let i =0;i<=9;i++) {
+  for (let i =0;i<=19;i++) {
     template += `<div class="innerBox">
                   <h2 class="newsTitle">${topNews.articles[i].title}</h2>
                   <h3 class="newsSource"><img src="star.png" alt="source" class="star" />${topNews.articles[i].source.name}</h3><img src="${getArticleProperty(topNews.articles[i],'urlToImage',"<p>photo not found</p>")}" alt="Article image" class="med" />
@@ -109,10 +109,10 @@ function getArticleProperty(article, property, message) {
     }else{
       toTop();
   let template = "<div class='newsBox'>";
-  for (let i =0;i<=9;i++) {
+  for (let i =0;i<=19;i++) {
     template += `<div class="innerBox">
                    <h2 class="newsTitle">${searchNews.articles[i].title}</h2>
-                   <h3 class="newsSource">${searchNews.articles[i].source.name}</h3><img src="${getArticleProperty(searchNews.articles[i],'urlToImage','Photo not found')}" alt="Article Image" class="med" />
+                   <h3 class="newsSource"><img src="star.png" alt="source" class="star" />${searchNews.articles[i].source.name}</h3><img src="${getArticleProperty(searchNews.articles[i],'urlToImage','Photo not found')}" alt="Article Image" class="med" />
                    <p class="newsContent">${getArticleProperty(searchNews.articles[i],'description','Click below to read this article.')}</p></br><a class="newsURL col-12" href="${searchNews.articles[i].url}" target="_blank">Click here to read more</a>
                   </div>`
   }
