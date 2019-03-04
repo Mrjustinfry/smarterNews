@@ -1,5 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-image: url('newspaperBackground.jpg');
+  margin: 0;
 }
 
 
@@ -29,9 +34,13 @@ ul, li {
   text-align: center;
   color: darkblue;
   font-size: 1.2em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
+.logoImg {
+  height: 5rem;
+  width: 5rem;
+}
 
 #top {
   color: black;
@@ -39,10 +48,14 @@ ul, li {
   border: 1px solid darkblue;
   border-radius: 3px;
   padding: 5px;
-  width: 100%;
   text-align: center;
   margin-top: 0.5%;
-  font-family: monospace;
+  font-family: 'Raleway', sans-serif;
+  position: fixed;
+  bottom: 2px;
+  left: 2px;
+  opacity: .75;
+  z-index: 3;
 }
 
 #top:hover {
@@ -51,12 +64,13 @@ ul, li {
   color: blue;
   transition-duration: 2s;
   transition: ease-in-out;
+  opacity: 1;
 }
 
 .lightbox {
   position: relative;
   background: whitesmoke;
-  font-family: 'Cormorant SC', serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.1em;
   color: darkblue;
   padding: 5px;
@@ -65,7 +79,7 @@ ul, li {
 
 .eBox {
   background: lightblue;
-  font-family: 'Cormorant SC', serif;
+  font-family: 'Raleway', sans-serif;
   color: darkblue;
   width: 100%;
   padding: 5px;
@@ -87,12 +101,6 @@ ul, li {
   font-size: 0px;
 }
 
-.clickable:hover {
-  background-image: linear-gradient(
-  cornflowerblue,darkblue);
-  cursor: pointer;
-}
-
 #close {
   color: white;
   border: 1px solid white;
@@ -112,24 +120,25 @@ ul, li {
 
 .newsURL, .wikiLink {
   color: darkblue;
-  background: lightsteelblue;
-  border: 1px solid blue;
+  background: ghostwhite;
   text-decoration: none;
-  border-radius: 3px;
-  padding: 5px;
-  width: 100%;
+  border-radius: .3em;
+  padding: .3em;
   overflow: auto;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  justify-content: center;
+  border: 1px solid transparent;
 }
 
 .newsURL:hover, .wikiLink:hover {
-  color: blue;
+  color: cornflowerblue;
   background: white;
-  border: 1px solid blue;
+  border: 1px solid cornflowerblue;
   border-radius: 3px;
   cursor: pointer;
-  transition-duration: 2s;
+  transition-duration: 300ms;
 }
 
 .navField {
@@ -144,7 +153,7 @@ footer {
 .cite {
   float: right;
   padding: 15px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Rubik', sans-serif;
   color: white;
   text-shadow: black 2px 2px 2px;
   text-align: center;
@@ -153,7 +162,7 @@ footer {
 }
 
 .citeLink {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Rubik', sans-serif;
   color: white;
   text-shadow: black 2px 2px 2px;
   text-align: center;
@@ -165,12 +174,14 @@ footer {
 .mainBox {
   background-color: rgba(0, 0, 2, 0.473);
   border-radius: 5px;
-  height: auto;
+  min-height: 100vh;
   width: auto;
   margin: auto;
-  padding: 30px;
 }
 
+main {
+  width: 100%;
+}
 
 
 .tnBtn, .snBtn {
@@ -182,7 +193,7 @@ footer {
   padding: 3%;
   border: 1px solid white;
   background-color: rgba(40, 14, 185, 0.767);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Rubik', sans-serif;
   font-size: 120%;
   color: white;
   text-shadow: black 2px 2px 2px;
@@ -193,7 +204,7 @@ footer {
   width: 100%;
   border: 1px solid white;
   background-color: rgba(12, 8, 202, 0.767);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Rubik', sans-serif;
   font-size: 120%;
   color: white;
   text-shadow: black 2px 2px 2px;
@@ -213,7 +224,7 @@ footer {
   text-align: center;
   border: 1px solid white;
   background-color: rgba(12, 8, 202, 0.767);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Rubik', sans-serif;
   font-size: 120%;
   color: white;
   text-shadow: black 2px 2px 2px;
@@ -271,15 +282,25 @@ footer {
 }
 
 .logo {
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    text-shadow: black 2px 2px 2px;
-    text-align: center;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.logo1 {
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+  text-align: center;
+  font-size: 2em;
 }
 
 .navLogo {
-  width: 100%;
-  margin: 0 auto;
+  margin: 0 1em;
+  float: left;
+  padding-bottom: .3em;
 }
 
 .newsBox {
@@ -291,6 +312,7 @@ footer {
   -webkit-box-shadow: 0px 2px 5px;
   padding: 2%;
   background-color: rgb(246, 249, 250);
+  margin-top: 2em;
 }
 
 .tagBox {
@@ -315,6 +337,7 @@ footer {
   color: rgb(221, 233, 250);
   text-shadow: blue 2px 2px 2px;
   font-size: 1.3em;
+  font-family: 'Raleway', sans-serif;
 }
 
 .stuff {
@@ -323,6 +346,7 @@ footer {
   font-size: 1.2em;
   font-weight: bold;
   letter-spacing: .02em;
+  font-family: 'Raleway', sans-serif;
 }
 
 .tnBox, .snBox {
@@ -338,8 +362,8 @@ footer {
 }
 
 .med {
-  height: 50%;
-  width: 50%;
+  height: auto;
+  width: 100%;
   border: 1px solid black;
 }
 
@@ -357,27 +381,58 @@ footer {
   width: auto;
 }
 
+.burger {
+  height: 1em;
+  width: 1.2em;
+  float: right;
+  margin: 0 1em;
+  margin-top: -.2em;
+}
 
 .newsContent {
   text-indent: 10%;
-  font-family: 'Cormorant SC', serif;
-  font-size: 1.1em;
-  font-weight: bold;
+  font-family: 'Rubik', sans-serif;
 }
 
 .newsTitle {
-  font-family: 'Times New Roman', Times, serif;
-  text-shadow: grey 0px 2px 5px;
+  font-family: 'Raleway', sans-serif;
+  color: darkblue;
+  font-size: large;
+  text-align: center;
+  padding: 1%;
+  box-shadow: 1px 1px 3px 1px gainsboro;
+  background-color: #f8fafd;
+  border: 1px solid cornflowerblue;
 }
 
 .newsSource {
-  text-decoration: underline;
+  font-size: x-small;
+  float: right;
+  color: #72a7cf;
+}
+
+.star {
+  height: 10px;
+  width: 10px;
+  padding: .2em;
+  margin: -.25em 0;
+}
+
+.innerBox {
+  background: linear-gradient(white, white, white, white, #d8e3f6, #d8e3f6);
+  padding: 2%;
+  margin-bottom: .5em;
+  box-shadow: 0px 0px 20px 5px aliceblue;
+  margin-left: .5em;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 .newsContent::first-letter {
   font-weight: bolder;
   font-size: 1.5em;
-  font-family: 'Almendra SC', serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 @keyframes breaker {
@@ -429,3 +484,52 @@ footer {
   animation-duration: 1.75s;
   animation-name: bounceIn;
 }
+
+@media only screen and (min-width: 768px) {
+
+.tnBox, .snBox {
+  width: 45%;
+  display: inline-block;
+}
+
+.newsBox {
+  display: grid;
+  grid-template: ". . .";
+}
+
+.start {
+    max-height: 100vh;
+}
+
+.snField {
+  border-left: 1px solid white;
+}
+
+.dropdown {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.dBox {
+  border-right: 1px solid white;
+}
+}
+
+::-webkit-scrollbar {
+    width: .75em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #d9e6ee;
+}
+
+::-webkit-scrollbar-thumb {
+    background: cornflowerblue;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b6c0e9;
+}
+
+//font-family: 'Raleway', sans-serif;
+//font-family: 'Rubik', sans-serif;

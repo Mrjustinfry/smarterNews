@@ -29,7 +29,7 @@
 function getArticleProperty(article, property, message) {
   return article && article[property] ? article[property] : message;
 }
- 
+
   function newsTemplate(topNews) {
     //title= topNews.articles[i].title,
     //source= topNews.articles[i].source.name,
@@ -38,12 +38,14 @@ function getArticleProperty(article, property, message) {
     //link= topNews.articles[i].url,
 
   let template = "<div class='newsBox'>";
-  for (let i =0;i<=9;i++) {    
-    template += `<h2 class="newsTitle">${topNews.articles[i].title}</h2>
-  <h3 class="newsSource">${topNews.articles[i].source.name}</h3><img src="${getArticleProperty(topNews.articles[i],'urlToImage',"<p>photo not found</p>")}" alt="Article image" class="med" />
-  <p class="newsContent">${getArticleProperty(topNews.articles[i],'description',"Click below to read this article.")}</p></br><a class="newsURL col-12" href="${topNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
+  for (let i =0;i<=9;i++) {
+    template += `<div class="innerBox">
+                  <h2 class="newsTitle">${topNews.articles[i].title}</h2>
+                  <h3 class="newsSource"><img src="star.png" alt="source" class="star" />${topNews.articles[i].source.name}</h3><img src="${getArticleProperty(topNews.articles[i],'urlToImage',"<p>photo not found</p>")}" alt="Article image" class="med" />
+                  <p class="newsContent">${getArticleProperty(topNews.articles[i],'description',"Click below to read this article.")}</p></br><a class="newsURL col-12" href="${topNews.articles[i].url}" target="_blank">Click here to read more</a>
+                </div>`
   }
-  
+
   template += `</div>`;
     return template;
   }
@@ -58,9 +60,9 @@ function getArticleProperty(article, property, message) {
     day = '0'+day
   } if(month<10) {
     month = '0'+month
-  } 
+  }
     today = year + '-' + month + '-' + day;
-   
+
    let newsSearch = $(".searchNewsInput").val();
    let searchNewsEP = 'https://newsapi.org/v2/everything?' +
           `q=${newsSearch}` +
@@ -108,11 +110,13 @@ function getArticleProperty(article, property, message) {
       toTop();
   let template = "<div class='newsBox'>";
   for (let i =0;i<=9;i++) {
-    template += `<h2 class="newsTitle">${searchNews.articles[i].title}</h2>
-  <h3 class="newsSource">${searchNews.articles[i].source.name}</h3><img src="${getArticleProperty(searchNews.articles[i],'urlToImage','Photo not found')}" alt="Article Image" class="med" />
-  <p class="newsContent">${getArticleProperty(searchNews.articles[i],'description','Click below to read this article.')}</p></br><a class="newsURL col-12" href="${searchNews.articles[i].url}" target="_blank">Click here to read more</a></br><p class="breaker"></p>`
+    template += `<div class="innerBox">
+                   <h2 class="newsTitle">${searchNews.articles[i].title}</h2>
+                   <h3 class="newsSource">${searchNews.articles[i].source.name}</h3><img src="${getArticleProperty(searchNews.articles[i],'urlToImage','Photo not found')}" alt="Article Image" class="med" />
+                   <p class="newsContent">${getArticleProperty(searchNews.articles[i],'description','Click below to read this article.')}</p></br><a class="newsURL col-12" href="${searchNews.articles[i].url}" target="_blank">Click here to read more</a>
+                  </div>`
   }
-  
+
   template += `</div>`;
     return template;
   }};
@@ -153,7 +157,7 @@ function closeBox() {
 
 
 function defMU(word) {
-  //markup for definition 
+  //markup for definition
     //headword = word.results[1].headword;
     //partofspeech = word.results[1].part_of_speech;
     //definition = word.results[1].senses[0].definition;
@@ -181,14 +185,14 @@ function defMU(word) {
       type: 'GET',
       url: wikiEP,
       async: false,
-      dataType: 'json',      
+      dataType: 'json',
       success: function(wiki) {
           $('.wikiInput').val('');
           $(".lbContainer").prop('hidden', false);
           $(".lbContainer").html(wikiMU(wiki));
           closeBox();
       },
-      error: function(errorMsg) {  
+      error: function(errorMsg) {
         alert('Oops! Something went wrong');
       }
  })};
@@ -204,7 +208,7 @@ function wikiMU(wiki) {
   //html for wikipedia search
   //title = wiki[1]
   //snippet = wiki[2]
-  //link = wiki[3] 
+  //link = wiki[3]
   if(wiki[1].length == 0) {
     return `
   <div class="lightbox wikiBox col-12"><button type="button" id="close"> x </button><p>Uh oh! Looks like something went wrong. Try another topic.</p></div>`
@@ -240,7 +244,7 @@ function toHome() {
   })
 }
 
- 
+
 function smarterNews() {
   $('#define').on('click', function(e) {
     e.preventDefault();
