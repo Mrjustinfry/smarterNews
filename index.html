@@ -15,58 +15,62 @@
       <!-- header for active view -->
       <header class="head" role="banner" aria-live="assertive" hidden>
        <ul>
+           <button class="dropDown" aria-live="assertive" hidden type="button" id="home" aria="button">Home</button>
           <li class="dropDown" aria-live="assesrtive" hidden>
-            <div class="dBox col-6">
+            <div class="dBox">
             <fieldset class="navField">
               <form action="#" class="defineForm">
                 <label for="definition" class="guide">Define a word:</label>
+                <div class="innerForm">
                 <input type="text" name="definition" class="defineInput" placeholder="Search the Dictionary..." aria-label="search">
                 <button type="button" id="define" class="dBtn nav" role="button">Search</button>
+              </div>
               </form>
             </fieldset>
             </div>
           </li>
           <li class="dropDown" aria-live="assertive" hidden>
-            <div class="sBox col-6">
+            <div class="sBox">
             <fieldset  class="navField">
               <form action="#" class="wikiForm">
                 <label for="wiki" class="guide">Learn more about a topic:</label>
+                <div class="innerForm">
                 <input type="text" name="wiki" class="wikiInput" placeholder="Search Wikipedia..." aria-label="search">
                 <button type="button" id="wiki" class="wBtn nav" role="button">Search</button>
+              </div>
               </form>
             </fieldset>
             </div>
           </li>
-          <button class="dropDown" aria-live="assertive" hidden type="button" id="home" aria="button">Home</button>
         </ul>
-        <div class="clickable col-12" role="button">
-          <h1 class="navLogo logo col-12"><sup>SmarterNews</sup></h1>
+        <div class="clickable" role="button">
+          <h1 class="navLogo logo"><sup>SmarterNews</sup></h1>
           <img src='burger.png' alt='menu' class="burger" />
         </div>
-        <section class="lbContainer col-12" aria-live="polite" hidden></section>
+        <section class="lbContainer" aria-live="polite" hidden></section>
         </header>
       <main class="row">
       <section role="region" class="mainBox row">
         <!-- News section -->
-        <div class="start col-12">
+        <div class="start">
           <div class="tagBox">
             <img src="logo2.png" alt="logo" class="logoImg" />
             <h1 class="logo1 bounceIn">SmarterNews</h1>
             <p class="info">A news app that gives you more</p>
           </div>
           <br/>
-          <div class="tnBox col-6">
+          <div class="tnBox">
             <h4 class="stuff">Start with the top headlines...</h4><br /><br />
             <button class="tnBtn" role="button">Top News</button>
           </div>
-        <div class="snBox col-6">
+        <div class="snBox">
         <fieldset class="snField">
           <p class="stuff">...or search the news you want to see.</p>
           <form action="#" class="searchNewsForm">
             <label for="query"></label>
             <input type="text" class="searchNewsInput" placeholder="Enter a search term" aria-label="search"></br>
             <button type="button" id="snBtn" class="snBtn">Search News</button>
-              <div class="eBox col-12" aria-live="assertive" hidden></div>
+              <div class="eBox" aria-live="assertive" hidden></div>
               </div>
             </form>
           </fieldset>
