@@ -20,10 +20,18 @@ html {
   -webkit-box-shadow: 0px 0px 20px lightblue;
   z-index: 10;
   position: fixed;
-  top: 0px;
+  top: 3px;
   right: 0px;
   width: 100%;
   height: auto;
+  margin-top: -1em;
+}
+
+.innerForm {
+  display: flex;
+  flex-basis: 100%;
+  box-shadow: 2px 2px 3px 0px royalblue;
+  border-radius: 5px;
 }
 
 ul {
@@ -33,7 +41,7 @@ ul {
 ul, li {
   list-style: none;
   padding: 0px;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   justify-content: space-around;
   flex: 1;
 }
@@ -41,10 +49,11 @@ ul, li {
 
 
 .guide {
-  text-align: center;
+  text-align: left;
   color: darkblue;
   font-size: 1.2em;
   font-family: 'Raleway', sans-serif;
+  flex: none;
 }
 
 .logoImg {
@@ -84,7 +93,10 @@ ul, li {
   font-size: 1.1em;
   color: darkblue;
   padding: 5px;
-  margin-bottom: 0.5%;
+}
+
+.lbContainer {
+  margin-top: -.8em;
 }
 
 .eBox {
@@ -113,12 +125,12 @@ ul, li {
 
 #close {
   color: white;
-  border: 1px solid white;
+  border: 1px solid transparent;
   position: relative;
   float: right;
-  background-color: rgba(40, 14, 185, 0.767);
   font-size: 1.2em;
   border-radius: 5px;
+  background-color: #2028d2;
 }
 
 #close:hover {
@@ -128,7 +140,7 @@ ul, li {
   transition-duration: 1s;
 }
 
-.newsURL, .wikiLink {
+.newsURL {
   color: darkblue;
   background: ghostwhite;
   text-decoration: none;
@@ -140,6 +152,20 @@ ul, li {
   display: flex;
   justify-content: center;
   border: 1px solid transparent;
+}
+
+.wikiLink {
+  color: darkblue;
+  text-decoration: none;
+  border-radius: .3em;
+  padding: .3em;
+  overflow: auto;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  justify-content: center;
+  border: 1px solid transparent;
+  background-color: #d8e3f6;
 }
 
 .newsURL:hover, .wikiLink:hover {
@@ -209,15 +235,18 @@ main {
   text-shadow: black 2px 2px 2px;
 }
 
-.dBtn, .wBtn, #home {
+.dBtn, .wBtn {
   text-align: center;
-  width: 100%;
-  border: 1px solid white;
+  width: 80%;
+  border: 1px solid transparent;
   background-color: rgba(12, 8, 202, 0.767);
   font-family: 'Rubik', sans-serif;
   font-size: 120%;
   color: white;
   text-shadow: black 2px 2px 2px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  flex: 1;
 }
 
 .tnBtn:hover, .snBtn:hover, #home:hover {
@@ -238,6 +267,8 @@ main {
   font-size: 120%;
   color: white;
   text-shadow: black 2px 2px 2px;
+  border-radius: 5px;
+  width: 80%;
 }
 
  #home:hover {
@@ -279,16 +310,22 @@ main {
 
 .wikiInput, .defineInput {
   color: blue;
-  text-align: center;
   align-content: center;
-  width: 100%;
   border: none;
-  border-bottom: 3px solid gray;
-  border-radius: 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   background-color: white;
-  height: 50px;
   font-size: 110%;
   font-weight: bold;
+  padding: 2%;
+  text-indent: .3em;
+  flex: 3;
+}
+
+.defineForm, .wikiForm {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column wrap;
 }
 
 .logo {
@@ -387,8 +424,10 @@ main {
 .defBox, .wikiBox {
   border: 1px solid black;
   padding: 10px;
-  height: auto;
-  width: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .burger {
